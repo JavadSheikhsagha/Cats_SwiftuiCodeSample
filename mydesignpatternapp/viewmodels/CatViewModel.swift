@@ -41,9 +41,24 @@ class CatViewModel : ObservableObject {
                 print("data came ")
                 onRecievedData(DataState.success(data: self.sortedCats, message: message))
                 break
-            case .error(let error, let message):
+            case .error(let error,_):
+                var msg = ""
+                switch error {
+                    case .unknown:
+                        msg = "Unknown Error"
+                        break
+                    case .httpError(_):
+                        msg = "No Internet Connection"
+                        break
+                    case .parseError(_):
+                        msg = "Failed to connect to server"
+                        break
+                    case .none:
+                        msg = "Something went wrong"
+                        break
+                }
                 print("data error ")
-                onRecievedData(DataState.error(error: error, message: message))
+                onRecievedData(DataState.error(error: error, message: msg))
                 break
             case .loading(let message):
                 print("data loading ")

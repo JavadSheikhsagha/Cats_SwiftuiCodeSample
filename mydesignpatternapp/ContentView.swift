@@ -53,40 +53,29 @@ struct ContentView: View {
             
             print("data fetch ")
             
-            catViewModel.getCatList { data in
-                switch data {
-                case .success(let data,_):
-                    catData = data ?? []
-                    showLoading = false
-                    break
-                case .error(let error,_):
-                    switch error {
-                        case .unknown:
-                            showError = true
-                            errorMessage = "Unknown Error"
-                            break
-                        case .httpError(_):
-                            showError = true
-                            errorMessage = "No Internet Connection"
-                            break
-                        case .parseError(_):
-                            showError = true
-                            errorMessage = "Failed to connect to server"
-                            break
-                        case .none:
-                            showError = true
-                            errorMessage = "Something went wrong"
-                            break
-                    }
-                    showLoading = false
-                    break
-                case .loading(_):
-                    showLoading = true
-                    break
-                case .idle(_):
-                    
-                    break
-                }
+            getCatData()
+        }
+    }
+    
+    
+    func getCatData() {
+        catViewModel.getCatList { data in
+            switch data {
+            case .success(let data,_):
+                catData = data ?? []
+                showLoading = false
+                break
+            case .error(_,let message):
+                errorMessage = message
+                showError = true
+                showLoading = false
+                break
+            case .loading(_):
+                showLoading = true
+                break
+            case .idle(_):
+                catData = []
+                break
             }
         }
     }
