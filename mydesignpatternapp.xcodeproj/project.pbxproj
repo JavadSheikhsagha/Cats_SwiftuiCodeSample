@@ -11,6 +11,16 @@
 		80CB85182A04F40E00190274 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 80CB85172A04F40E00190274 /* ContentView.swift */; };
 		80CB851A2A04F41000190274 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 80CB85192A04F41000190274 /* Assets.xcassets */; };
 		80CB851D2A04F41000190274 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 80CB851C2A04F41000190274 /* Preview Assets.xcassets */; };
+		80CB85252A04F42B00190274 /* DataState.swift in Sources */ = {isa = PBXBuildFile; fileRef = 80CB85242A04F42B00190274 /* DataState.swift */; };
+		80CB85282A04F59400190274 /* Alamofire in Frameworks */ = {isa = PBXBuildFile; productRef = 80CB85272A04F59400190274 /* Alamofire */; };
+		80CB852A2A04F61600190274 /* CatsApiService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 80CB85292A04F61600190274 /* CatsApiService.swift */; };
+		80CB852D2A04F68800190274 /* FactModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 80CB852C2A04F68800190274 /* FactModel.swift */; };
+		80CB852F2A04F7A800190274 /* Utils.swift in Sources */ = {isa = PBXBuildFile; fileRef = 80CB852E2A04F7A800190274 /* Utils.swift */; };
+		80CB85332A04F8B300190274 /* SwiftyJSON in Frameworks */ = {isa = PBXBuildFile; productRef = 80CB85322A04F8B300190274 /* SwiftyJSON */; };
+		80CB85352A04FC7F00190274 /* MyDecoder.swift in Sources */ = {isa = PBXBuildFile; fileRef = 80CB85342A04FC7F00190274 /* MyDecoder.swift */; };
+		80CB85372A0501F400190274 /* CatRepository.swift in Sources */ = {isa = PBXBuildFile; fileRef = 80CB85362A0501F400190274 /* CatRepository.swift */; };
+		80CB853B2A05050B00190274 /* CatViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 80CB853A2A05050B00190274 /* CatViewModel.swift */; };
+		80CB853D2A051CEE00190274 /* ErrorType.swift in Sources */ = {isa = PBXBuildFile; fileRef = 80CB853C2A051CEE00190274 /* ErrorType.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -19,6 +29,14 @@
 		80CB85172A04F40E00190274 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
 		80CB85192A04F41000190274 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		80CB851C2A04F41000190274 /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
+		80CB85242A04F42B00190274 /* DataState.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DataState.swift; sourceTree = "<group>"; };
+		80CB85292A04F61600190274 /* CatsApiService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CatsApiService.swift; sourceTree = "<group>"; };
+		80CB852C2A04F68800190274 /* FactModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FactModel.swift; sourceTree = "<group>"; };
+		80CB852E2A04F7A800190274 /* Utils.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Utils.swift; sourceTree = "<group>"; };
+		80CB85342A04FC7F00190274 /* MyDecoder.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyDecoder.swift; sourceTree = "<group>"; };
+		80CB85362A0501F400190274 /* CatRepository.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CatRepository.swift; sourceTree = "<group>"; };
+		80CB853A2A05050B00190274 /* CatViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CatViewModel.swift; sourceTree = "<group>"; };
+		80CB853C2A051CEE00190274 /* ErrorType.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ErrorType.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -26,6 +44,8 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				80CB85332A04F8B300190274 /* SwiftyJSON in Frameworks */,
+				80CB85282A04F59400190274 /* Alamofire in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -51,6 +71,11 @@
 		80CB85142A04F40E00190274 /* mydesignpatternapp */ = {
 			isa = PBXGroup;
 			children = (
+				80CB85392A0504FE00190274 /* viewmodels */,
+				80CB85232A04F41F00190274 /* api */,
+				80CB852B2A04F68000190274 /* models */,
+				80CB85382A0501FA00190274 /* repo */,
+				80CB85302A04F7AC00190274 /* utils */,
 				80CB85152A04F40E00190274 /* mydesignpatternappApp.swift */,
 				80CB85172A04F40E00190274 /* ContentView.swift */,
 				80CB85192A04F41000190274 /* Assets.xcassets */,
@@ -65,6 +90,49 @@
 				80CB851C2A04F41000190274 /* Preview Assets.xcassets */,
 			);
 			path = "Preview Content";
+			sourceTree = "<group>";
+		};
+		80CB85232A04F41F00190274 /* api */ = {
+			isa = PBXGroup;
+			children = (
+				80CB85292A04F61600190274 /* CatsApiService.swift */,
+			);
+			path = api;
+			sourceTree = "<group>";
+		};
+		80CB852B2A04F68000190274 /* models */ = {
+			isa = PBXGroup;
+			children = (
+				80CB852C2A04F68800190274 /* FactModel.swift */,
+			);
+			path = models;
+			sourceTree = "<group>";
+		};
+		80CB85302A04F7AC00190274 /* utils */ = {
+			isa = PBXGroup;
+			children = (
+				80CB85242A04F42B00190274 /* DataState.swift */,
+				80CB85342A04FC7F00190274 /* MyDecoder.swift */,
+				80CB852E2A04F7A800190274 /* Utils.swift */,
+				80CB853C2A051CEE00190274 /* ErrorType.swift */,
+			);
+			path = utils;
+			sourceTree = "<group>";
+		};
+		80CB85382A0501FA00190274 /* repo */ = {
+			isa = PBXGroup;
+			children = (
+				80CB85362A0501F400190274 /* CatRepository.swift */,
+			);
+			path = repo;
+			sourceTree = "<group>";
+		};
+		80CB85392A0504FE00190274 /* viewmodels */ = {
+			isa = PBXGroup;
+			children = (
+				80CB853A2A05050B00190274 /* CatViewModel.swift */,
+			);
+			path = viewmodels;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -83,6 +151,10 @@
 			dependencies = (
 			);
 			name = mydesignpatternapp;
+			packageProductDependencies = (
+				80CB85272A04F59400190274 /* Alamofire */,
+				80CB85322A04F8B300190274 /* SwiftyJSON */,
+			);
 			productName = mydesignpatternapp;
 			productReference = 80CB85122A04F40E00190274 /* mydesignpatternapp.app */;
 			productType = "com.apple.product-type.application";
@@ -111,6 +183,10 @@
 				Base,
 			);
 			mainGroup = 80CB85092A04F40E00190274;
+			packageReferences = (
+				80CB85262A04F59400190274 /* XCRemoteSwiftPackageReference "Alamofire" */,
+				80CB85312A04F8B300190274 /* XCRemoteSwiftPackageReference "SwiftyJSON" */,
+			);
 			productRefGroup = 80CB85132A04F40E00190274 /* Products */;
 			projectDirPath = "";
 			projectRoot = "";
@@ -137,8 +213,16 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				80CB85252A04F42B00190274 /* DataState.swift in Sources */,
 				80CB85182A04F40E00190274 /* ContentView.swift in Sources */,
+				80CB852A2A04F61600190274 /* CatsApiService.swift in Sources */,
+				80CB85372A0501F400190274 /* CatRepository.swift in Sources */,
+				80CB85352A04FC7F00190274 /* MyDecoder.swift in Sources */,
+				80CB853B2A05050B00190274 /* CatViewModel.swift in Sources */,
+				80CB853D2A051CEE00190274 /* ErrorType.swift in Sources */,
+				80CB852D2A04F68800190274 /* FactModel.swift in Sources */,
 				80CB85162A04F40E00190274 /* mydesignpatternappApp.swift in Sources */,
+				80CB852F2A04F7A800190274 /* Utils.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -339,6 +423,38 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
+
+/* Begin XCRemoteSwiftPackageReference section */
+		80CB85262A04F59400190274 /* XCRemoteSwiftPackageReference "Alamofire" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/Alamofire/Alamofire.git";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 5.0.0;
+			};
+		};
+		80CB85312A04F8B300190274 /* XCRemoteSwiftPackageReference "SwiftyJSON" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/SwiftyJSON/SwiftyJSON.git";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 5.0.0;
+			};
+		};
+/* End XCRemoteSwiftPackageReference section */
+
+/* Begin XCSwiftPackageProductDependency section */
+		80CB85272A04F59400190274 /* Alamofire */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 80CB85262A04F59400190274 /* XCRemoteSwiftPackageReference "Alamofire" */;
+			productName = Alamofire;
+		};
+		80CB85322A04F8B300190274 /* SwiftyJSON */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 80CB85312A04F8B300190274 /* XCRemoteSwiftPackageReference "SwiftyJSON" */;
+			productName = SwiftyJSON;
+		};
+/* End XCSwiftPackageProductDependency section */
 	};
 	rootObject = 80CB850A2A04F40E00190274 /* Project object */;
 }

@@ -8,14 +8,87 @@
 import SwiftUI
 
 struct ContentView: View {
+    
+    @State var catData : [FactModel] = []
+    
+    @State var errorMessage : String? = nil
+    @State var showError : Bool = false
+    
+    @State var showLoading : Bool = false
+    
+    @StateObject var catViewModel = CatViewModel()
+    
     var body: some View {
-        VStack {
-            Image(systemName: "globe")
-                .imageScale(.large)
-                .foregroundColor(.accentColor)
-            Text("Hello, world!")
+        ZStack {
+            
+            Color.red
+                .opacity(0.1)
+                .ignoresSafeArea()
+            
+            
+            
+            VStack {
+                ForEach(catData, id: \._id) { data in
+                    
+                    Text(data.text ?? "nil")
+                    
+                }
+            }
+            .padding()
+            
+            ProgressView()
+                .opacity(showLoading ? 1.0 : 0.0)
+            
         }
-        .padding()
+        .alert("Error", isPresented: $showError, actions: {
+            Button {
+                errorMessage = nil
+            } label: {
+                Text("ok")
+            }
+
+        }, message: {
+            Text(errorMessage ?? "")
+        }).onAppear {
+            
+            print("data fetch ")
+            
+            catViewModel.getCatList { data in
+                switch data {
+                case .success(let data,_):
+                    catData = data ?? []
+                    showLoading = false
+                    break
+                case .error(let error,_):
+                    switch error {
+                        case .unknown:
+                            showError = true
+                            errorMessage = "Unknown Error"
+                            break
+                        case .httpError(_):
+                            showError = true
+                            errorMessage = "No Internet Connection"
+                            break
+                        case .parseError(_):
+                            showError = true
+                            errorMessage = "Failed to connect to server"
+                            break
+                        case .none:
+                            showError = true
+                            errorMessage = "Something went wrong"
+                            break
+                    }
+                    showLoading = false
+                    break
+                case .loading(_):
+                    showLoading = true
+                    break
+                case .idle(_):
+                    
+                    break
+                }
+            }
+        }
     }
 }
 
