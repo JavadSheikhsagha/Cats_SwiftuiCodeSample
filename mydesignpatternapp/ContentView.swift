@@ -62,7 +62,9 @@ struct ContentView: View {
         catViewModel.getCatList { data in
             switch data {
             case .success(let data,_):
-                catData = data ?? []
+                withAnimation {
+                    catData = data ?? []
+                }
                 showLoading = false
                 break
             case .error(_,let message):

@@ -71,11 +71,11 @@
 		80CB85142A04F40E00190274 /* mydesignpatternapp */ = {
 			isa = PBXGroup;
 			children = (
-				80CB85392A0504FE00190274 /* viewmodels */,
+				80CB85302A04F7AC00190274 /* utils */,
 				80CB85232A04F41F00190274 /* api */,
 				80CB852B2A04F68000190274 /* models */,
 				80CB85382A0501FA00190274 /* repo */,
-				80CB85302A04F7AC00190274 /* utils */,
+				80CB85392A0504FE00190274 /* viewmodels */,
 				80CB85152A04F40E00190274 /* mydesignpatternappApp.swift */,
 				80CB85172A04F40E00190274 /* ContentView.swift */,
 				80CB85192A04F41000190274 /* Assets.xcassets */,
