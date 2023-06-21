@@ -9,12 +9,6 @@ import SwiftUI
 
 struct ContentView: View {
     
-    @State var catData : [FactModel] = []
-    
-    @State var errorMessage : String? = nil
-    @State var showError : Bool = false
-    
-    @State var showLoading : Bool = false
     
     @StateObject var catViewModel = CatViewModel()
     
@@ -28,7 +22,7 @@ struct ContentView: View {
             
             
             VStack {
-                ForEach(catData, id: \._id) { data in
+                ForEach(catViewModel.sortedCats, id: \._id) { data in
                     
                     Text(data.text ?? "nil")
                     
@@ -37,18 +31,18 @@ struct ContentView: View {
             .padding()
             
             ProgressView()
-                .opacity(showLoading ? 1.0 : 0.0)
+                .opacity(catViewModel.showLoading ? 1.0 : 0.0)
             
         }
-        .alert("Error", isPresented: $showError, actions: {
+        .alert("Error", isPresented: $catViewModel.showError, actions: {
             Button {
-                errorMessage = nil
+                catViewModel.errorMessage = nil
             } label: {
                 Text("ok")
             }
 
         }, message: {
-            Text(errorMessage ?? "")
+            Text(catViewModel.errorMessage ?? "")
         }).onAppear {
             
             print("data fetch ")
@@ -59,27 +53,7 @@ struct ContentView: View {
     
     
     func getCatData() {
-        catViewModel.getCatList { data in
-            switch data {
-            case .success(let data,_):
-                withAnimation {
-                    catData = data ?? []
-                }
-                showLoading = false
-                break
-            case .error(_,let message):
-                errorMessage = message
-                showError = true
-                showLoading = false
-                break
-            case .loading(_):
-                showLoading = true
-                break
-            case .idle(_):
-                catData = []
-                break
-            }
-        }
+        catViewModel.getCatList()
     }
 }
 

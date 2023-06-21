@@ -24,6 +24,7 @@ class CatsApiService_Impl: CatsApiService {
     func fetchFactsAboutCats(onResponse: @escaping (DataState<[FactModel]?, ErrorType?, String?>) -> Void) {
         let link = "\(BASE_URL)facts"
         print("data fetch ")
+        onResponse(.loading(message: ""))
         AF.request(link, method: .get, encoding: JSONEncoding.default).responseJSON { (response) in
             
             switch response.result{

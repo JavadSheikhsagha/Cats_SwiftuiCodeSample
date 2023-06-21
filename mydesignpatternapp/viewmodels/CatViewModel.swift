@@ -12,8 +12,11 @@ import SwiftUI
 class CatViewModel : ObservableObject {
     
     
-    @Published var cats : [FactModel] = []
+//    @Published var cats : [FactModel] = []
     @Published var sortedCats : [FactModel] = []
+    @Published var errorMessage : String? = nil
+    @Published var showError : Bool = false
+    @Published var showLoading : Bool = false
 //    @Published var cats : DataState<[FactModel], ErrorType, String> = .idle(message: "")
 //    @Published var sortedCats : DataState<[FactModel], ErrorType, String> = .idle(message: "")
     
@@ -27,20 +30,18 @@ class CatViewModel : ObservableObject {
     }
     
     
-    func getCatList(onRecievedData: @escaping (DataState<[FactModel]?, ErrorType?, String?>) -> Void) {
-        
-        onRecievedData(DataState.loading(message: ""))
+    func getCatList() {
         
         self.catRepository?.getAllCats(onRecievedData: { dataState in
             
             switch dataState {
-            case .success(let data, let message):
+            case .success(let data, _):
                 
                 self.sortedCats = data?.sorted(by: { f1, f2 in
                     return f1.text?.count ?? 0 > f2.text?.count ?? 0
                 }) ?? []
                 print("data came ")
-                onRecievedData(DataState.success(data: self.sortedCats, message: message))
+                self.showLoading = false
                 break
             case .error(let error,_):
                 var msg = ""
@@ -59,15 +60,18 @@ class CatViewModel : ObservableObject {
                         break
                 }
                 print("data error ")
-                onRecievedData(DataState.error(error: error, message: msg))
+                self.errorMessage = msg
+                self.showError = true
+                self.showLoading = false
+                
                 break
-            case .loading(let message):
+            case .loading(_):
                 print("data loading ")
-                onRecievedData(DataState.loading(message: message))
+                self.showLoading = true
                 break
-            case .idle(let message):
+            case .idle(_):
                 print("data idle ")
-                onRecievedData(DataState.idle(message: message))
+                
                 break
             }
             
