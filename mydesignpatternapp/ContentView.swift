@@ -45,8 +45,7 @@ struct ContentView: View {
             Text(catViewModel.errorMessage ?? "")
         }).onAppear {
             
-            print("data fetch ")
-            
+//            print("data fetch ")
 //            getCatData()
             
         }.task {

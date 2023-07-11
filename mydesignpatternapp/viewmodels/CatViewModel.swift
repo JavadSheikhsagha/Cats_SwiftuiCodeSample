@@ -79,6 +79,10 @@ class CatViewModel : ObservableObject {
     func getCatFactsWithAsync() async {
         
         do {
+            await MainActor.run {
+                print("data loading ")
+                self.showLoading = true
+            }
             let datastate = try await catRepository?.getAllCatsWithAsync()
             
             switch datastate {
@@ -118,12 +122,8 @@ class CatViewModel : ObservableObject {
                 
                 break
             case .loading(_):
-                print("data loading ")
-                self.showLoading = true
                 break
             case .idle(_):
-                print("data idle ")
-                
                 break
             case .none:
                 print("none")
