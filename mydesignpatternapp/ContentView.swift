@@ -47,7 +47,10 @@ struct ContentView: View {
             
             print("data fetch ")
             
-            getCatData()
+//            getCatData()
+            
+        }.task {
+            await catViewModel.getCatFactsWithAsync()
         }
     }
     

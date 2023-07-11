@@ -28,4 +28,9 @@ class CatRepository {
     }
     
     
+    func getAllCatsWithAsync() async throws -> DataState<[FactModel]?, ErrorType?, String?>? {
+        return try await catApiService?.fetchFactsAboutCats()
+    }
+    
+    
 }

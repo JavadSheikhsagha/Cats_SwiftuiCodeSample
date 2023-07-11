@@ -15,6 +15,8 @@ protocol CatsApiService {
     
     func fetchFactsAboutCats(onResponse : @escaping (DataState<[FactModel]?, ErrorType?, String?>) -> Void)
     
+    func fetchFactsAboutCats() async throws -> DataState<[FactModel]?, ErrorType?, String?>
+    
 }
 
 
@@ -51,8 +53,23 @@ class CatsApiService_Impl: CatsApiService {
     }
     
     
-
+    func fetchFactsAboutCats() async -> DataState<[FactModel]?, ErrorType?, String?>  {
+        
+        do {
+            
+            let (data, _) = try await URLSession.shared.data(from: URL(string: "\(BASE_URL)facts")!)
     
-    
+            let parsedData = MyDecoder<[FactModel]>().decodeJSON(json: data)
+            
+            switch (parsedData) {
+            case .success(let list):
+                return DataState.success(data: list)
+            case .failure(let error):
+                return DataState.error(error: ErrorType.parseError(error?.localizedDescription ?? "Failed to parse json"), message: "")
+            }
+        }catch {
+            return DataState.error(error: ErrorType.httpError(error.asAFError?.responseCode))
+        }
+    }
     
 }
