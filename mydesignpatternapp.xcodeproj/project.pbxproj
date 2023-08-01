@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		3F1BC45A2A79781B00E993AD /* ApiServices.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F1BC4592A79781B00E993AD /* ApiServices.swift */; };
 		80CB85162A04F40E00190274 /* mydesignpatternappApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 80CB85152A04F40E00190274 /* mydesignpatternappApp.swift */; };
 		80CB85182A04F40E00190274 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 80CB85172A04F40E00190274 /* ContentView.swift */; };
 		80CB851A2A04F41000190274 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 80CB85192A04F41000190274 /* Assets.xcassets */; };
@@ -24,6 +25,7 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		3F1BC4592A79781B00E993AD /* ApiServices.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ApiServices.swift; sourceTree = "<group>"; };
 		80CB85122A04F40E00190274 /* mydesignpatternapp.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = mydesignpatternapp.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		80CB85152A04F40E00190274 /* mydesignpatternappApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = mydesignpatternappApp.swift; sourceTree = "<group>"; };
 		80CB85172A04F40E00190274 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
@@ -115,6 +117,7 @@
 				80CB85342A04FC7F00190274 /* MyDecoder.swift */,
 				80CB852E2A04F7A800190274 /* Utils.swift */,
 				80CB853C2A051CEE00190274 /* ErrorType.swift */,
+				3F1BC4592A79781B00E993AD /* ApiServices.swift */,
 			);
 			path = utils;
 			sourceTree = "<group>";
@@ -220,6 +223,7 @@
 				80CB85352A04FC7F00190274 /* MyDecoder.swift in Sources */,
 				80CB853B2A05050B00190274 /* CatViewModel.swift in Sources */,
 				80CB853D2A051CEE00190274 /* ErrorType.swift in Sources */,
+				3F1BC45A2A79781B00E993AD /* ApiServices.swift in Sources */,
 				80CB852D2A04F68800190274 /* FactModel.swift in Sources */,
 				80CB85162A04F40E00190274 /* mydesignpatternappApp.swift in Sources */,
 				80CB852F2A04F7A800190274 /* Utils.swift in Sources */,
