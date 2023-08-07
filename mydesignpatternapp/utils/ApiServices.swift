@@ -24,7 +24,7 @@ class GetApiService<DataModel:Codable> {
         }
     }
     
-    func fetchFactsAboutCats(onResponse: @escaping (DataState<DataModel?, ErrorType?, String?>) -> Void) {
+    func fetch(onResponse: @escaping (DataState<DataModel?, ErrorType?, String?>) -> Void) {
         let link = "\(BASE_URL)facts"
         print("data fetch ")
         onResponse(.loading(message: ""))
@@ -72,7 +72,7 @@ class PostApiService<DataModel:Codable> {
         self.parameters = parameters
     }
     
-    func fetchFactsAboutCats(onResponse: @escaping (DataState<DataModel?, ErrorType?, String?>) -> Void) {
+    func fetch(onResponse: @escaping (DataState<DataModel?, ErrorType?, String?>) -> Void) {
         let link = "\(BASE_URL)facts"
         print("data fetch ")
         onResponse(.loading(message: ""))
@@ -119,7 +119,7 @@ class DeleteApiService<DataModel:Codable> {
         self.parameters = parameters
     }
     
-    func fetchFactsAboutCats(onResponse: @escaping (DataState<DataModel?, ErrorType?, String?>) -> Void) {
+    func fetch(onResponse: @escaping (DataState<DataModel?, ErrorType?, String?>) -> Void) {
         let link = "\(BASE_URL)facts"
         print("data fetch ")
         onResponse(.loading(message: ""))
@@ -166,7 +166,7 @@ class PatchApiService<DataModel:Codable> {
         self.parameters = parameters
     }
     
-    func fetchFactsAboutCats(onResponse: @escaping (DataState<DataModel?, ErrorType?, String?>) -> Void) {
+    func fetch(onResponse: @escaping (DataState<DataModel?, ErrorType?, String?>) -> Void) {
         let link = "\(BASE_URL)facts"
         print("data fetch ")
         onResponse(.loading(message: ""))
